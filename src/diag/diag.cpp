@@ -134,10 +134,12 @@ int ExactDiag::diagonalize(void)
 		std::cout << "E["<<i<<"] = "<<std::setw(12)<<E<< "\n"; 
 		if (i > 0 && std::abs(E-solver_.eigenvalues()(i-1))>1.0E-6) break;
 	}
+	*/
 	// eigen states
+
 	int n = 0;
 	std::cout << "Groundstate = \n";
-	std::cout << "  "<<std::setw(12)<<solver_.eigenvectors()(0,n) 
+	std::cout << "    "<<std::setw(12)<<solver_.eigenvectors()(0,n) 
 		<<" "<<basis_.state(0)<<"\n";
 	for (int i=1; i<dim_; ++i) {
 		double c = solver_.eigenvectors()(i,n);
@@ -145,8 +147,7 @@ int ExactDiag::diagonalize(void)
 			std::cout << "+ "<<std::setw(14)<<c<<" "<<basis_.state(i)<<"\n";
 		}
 	}
-	*/
-
+	
 
   return 0;
 }
